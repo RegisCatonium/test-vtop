@@ -1,0 +1,442 @@
+@import config
+
+a.btn, button.btn
+	display: block
+	padding: 2rem
+	width: 39.2rem
+	font-size: 2.4rem
+	font-weight: 600
+	color: $textColor
+	text-align: center
+	text-transform: uppercase
+	background-color: $accent
+	border: 1px solid $accent
+	border-radius: 4.8rem
+	transition: background .3s linear, color .3s linear
+	&:hover
+		color: $accent
+		background-color: transparent
+.header
+	display: flex
+	justify-content: space-between
+	align-items: center
+	max-width: 164rem
+	margin: 1.6rem auto .8rem
+	padding: 3.2rem 4.8rem
+	border: 4px solid $accent
+	border-radius: 6.4rem
+
+.logo
+	display: block
+	height: 3.2rem
+	&__img
+		height: 100%
+
+// бургер меню
+.burger
+	display: none
+	width: 2.1rem
+	height: 1.4rem
+	padding: 0
+	position: relative
+	background: none
+	border: none
+	font-size: 0
+	color: transparent
+	z-index: 1000
+	transition: opacity .2s ease
+	&__item
+		display: block
+		width: 100%
+		height: 2px
+		background-color: #fff
+		z-index: -1
+		position: absolute
+		transform: translateY(-50%)
+		transition: opacity .1s linear, transform .3s linear
+		&_top
+			top: 0
+		&_center
+			top: calc( 50% - 1px )
+		&_bottom
+			bottom: 0%
+
+#burger-checkbox
+	display: none
+	&:checked ~ .header
+		.burger__item_center
+			opacity: 0
+		.burger__item_top, .burger__item_bottom
+			top: 50%
+		.burger__item_top
+			transform: rotate(135deg)
+		.burger__item_bottom
+			transform: rotate(-135deg)
+		& .mb-nav
+			transform: translateX(0%)
+	&:checked ~ .banner
+		transform: translateX(-100%)
+// -- бургер
+
+.nav
+	display: flex
+	margin: 0
+	padding: 0
+	list-style-type: none
+	&__link
+		padding: 1.6rem
+		transition: color .2s ease-in, background-color .2s ease-in
+		&:hover
+			color: darken($accent, 60%)
+			background-color: $accent
+.mb-nav
+	display: none
+.buttons
+	display: flex
+	align-items: center
+	gap: 1.4rem
+	&__item
+		padding: 1.4rem
+		font-size: 1.6rem
+		text-transform: uppercase
+		color: $textColor
+		background-color: transparent
+		border: 2px solid #9DADF2
+		border-radius: 2.4rem
+		cursor: pointer
+		&_mb
+			display: none
+		&_lang
+			padding-left: 3.8rem
+			position: relative
+			transition: color .2s ease-in, background-color .2s ease-in
+			&::before
+				content: '\e902'
+				font-family: $fontIcon
+				font-size: 1.6rem
+				color: #9DADF2
+				position: absolute
+				top: calc(50% - .9rem)
+				left: 1.4rem
+				transition: color .2s ease-in
+		&_blue
+			background-color: $accent
+			border-color: $accent
+.banner
+	display: flex
+	justify-content: space-between
+	align-items: center
+	max-width: 164rem
+	margin: 0 auto
+	padding: 14rem 0 22rem
+	position: relative
+	transition: transform 2s ease-in-out
+	transform: translateX(0%)
+	&::before
+		content: ''
+		display: block
+		height: 24rem
+		width: 130rem
+		background: linear-gradient(180deg, #478BF9 0%, rgba(71, 139, 249, 0.40) 100%)
+		opacity: 0.55
+		filter: blur(14rem)
+		transform: rotate(30deg)
+		position: absolute
+		top: calc(50% - 11.3rem)
+		left: -40%
+		z-index: 10
+	&::after
+		content: ''
+		display: block
+		width: 100%
+		height: 30%
+		background: linear-gradient(0deg, $bgColor 0%, rgba($bgColor, .9) 20%,  rgba($bgColor, 0) 100%)
+		position: absolute
+		bottom: 0
+		left: 0
+		z-index: 10
+		pointer-events: none
+	&__description
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+
+	&__title
+		margin-bottom: 2.4rem
+		font-size: 9.6rem
+		font-weight: 500
+		& span
+			display: block
+			color: $accent
+	&__text
+		margin-bottom: 4.8rem
+		font-size: 3.2rem
+		font-weight: 500
+		color: rgba($textColor, .6)
+
+.blog
+	display: flex
+	flex-direction: column
+	align-items: center
+	gap: 2.4rem
+	height: 66rem
+	width: 53.2rem
+	position: relative
+	z-index: 11
+	&::before
+		content: ''
+		display: block
+		height: 57.4rem
+		width: 57.4rem
+		background: linear-gradient(256deg, #478BF9 0%, #9DADF2 100%)
+		border-radius: 50%
+		opacity: 0.55
+		filter: blur(22.5rem)
+		position: absolute
+		bottom: -50%
+		right: -50%
+		z-index: 1
+		pointer-events: none
+	&__title
+		font-size: 4rem
+		line-height: 1
+		text-transform: uppercase
+	&__area
+		width: 53rem
+		height: 59.5rem
+		padding: 2.4rem
+		padding-right: 4rem
+		background-color: rgba(#fff, .12)
+		border: 3px solid $accent
+		border-radius: 10rem
+		& .swiper-slide
+			max-height: 16.2rem
+			padding-bottom: 1.6rem
+		& .swiper-scrollbar
+			height: 40rem
+			width: .8rem
+			top: 9.6rem
+			right: 1.6rem
+			background-color: rgba(#fff, .12)
+			&-drag
+				background-color: $accent
+	&__item
+		display: flex
+		justify-content: space-between
+		flex-direction: column
+		align-items: flex-start
+		height: 100%
+		padding: 1.6rem 6.4rem
+		background-color: $bgColor-2
+		border-radius: 19.6rem
+		transition: background-color .2s ease
+		&_link
+			background-color: $accent
+	&__text
+		display: -webkit-box
+		-webkit-box-orient: vertical
+		overflow: hidden
+		margin: 0
+		-webkit-line-clamp: 3
+		font-size: 2.4rem
+		line-height: 2.8rem
+
+	&__date
+		font-size: 1.4rem
+		font-family: $fontDate
+		font-weight: 500
+		color: rgba($textColor, .6)
+
+.bg-anim
+	display: flex
+	justify-content: space-between
+	width: 33.4rem
+	height: 100%
+	overflow: hidden
+	position: absolute
+	top: 0
+	left: calc(50% - 16.7rem)
+	pointer-events: none
+	z-index: 1
+
+.line
+	width: 10rem
+	height: 130%
+	&:first-child
+		opacity: .2
+	&_second
+		opacity: .8
+		& .line__bg
+			animation: move-revers 15s linear infinite
+			animation-delay: -15s
+			&:nth-child(2)
+				animation: move-revers-2 15s linear infinite
+				animation-delay: -7.5s
+	&_third
+		opacity: .5
+		& .line__bg
+			animation-duration: 60s
+			animation-delay: -60s
+			&:nth-child(2)
+				animation: move-2 60s linear infinite
+				animation-delay: -30s
+	&__bg
+		display: flex
+		flex-direction: column
+		justify-content: space-around
+		animation: move 18s linear infinite
+		animation-delay: -18s
+		&:nth-child(2)
+			animation: move-2 18s linear infinite
+			animation-delay: -9s
+
+	&__item
+		width: 10rem
+		height: 10rem
+		margin-bottom: 2.5rem
+		box-sizing: content-box
+		position: relative
+		&_border
+			width: 9.3rem
+			height: 22rem
+			border: .356rem solid $accent
+			border-radius: 10rem
+			&-white
+				border-color: #fff
+			& .line__img
+				position: absolute
+				bottom: -0.356rem
+				left: -0.32rem
+			&-revers
+				transform: rotate(180deg)
+				& .line__img
+					transform: rotate(180deg)
+					left: auto
+					right: -0.32rem
+	&__img
+		width: 10rem
+
+@keyframes move
+	0%
+		transform: translateY(-100%)
+	100%
+		transform: translateY(100%)
+@keyframes move-2
+	0%
+		transform: translateY(-200%)
+	100%
+		transform: translateY(0%)
+@keyframes move-revers
+	0%
+		transform: translateY(100%)
+	100%
+		transform: translateY(-100%)
+
+@keyframes move-revers-2
+	0%
+		transform: translateY(0%)
+	100%
+		transform: translateY(-200%)
+
+.footer
+	width: 100%
+	border: 3px solid $accent
+	border-radius: 6.4rem 6.4rem 0 0
+	border-bottom: none
+	background-color: $bgColor-2
+
+	&__area
+		display: flex
+		justify-content: space-between
+		align-items: flex-end
+		max-width: 164rem
+		margin: 0 auto
+		padding: 4rem 0 2.4rem
+	&__text
+		margin-bottom: 1.4rem
+		text-align: right
+.pages
+	display: flex
+	gap: 4rem
+	margin: 0
+	padding: 0
+	list-style-type: none
+	&__link
+		transition: color .2s ease
+		&:hover
+			color: $accent
+
+.socials
+	display: flex
+	margin: 0
+	padding: 0
+	gap: 4rem
+	list-style-type: none
+
+	&__item
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 3.2rem
+		height: 3.2rem
+		margin: 0
+		padding: 0
+		position: relative
+		transition: background-color .2s linear
+		&:hover::after, &:hover::before
+			background-color: #fff
+		&::after, &::before
+			content: ''
+			display: block
+			font-size: 1em
+			width: 110%
+			height: .18em
+			background-color: $accent
+			position: absolute
+		&::after
+			transform: rotate(45deg)
+		&::before
+			transform: rotate(-45deg)
+
+	&__link
+		display: flex
+		justify-content: center
+		align-items: center
+		font-size: 1.6rem
+		color: $bgColor-2
+		line-height: 0
+		transition: color .2s linear
+		position: relative
+		z-index: 1
+		&:hover
+			color: darken($accent, 20%)
+			&::after
+				background-color: #fff
+			&::before
+				border-color: #fff
+		&::after, &::before
+			content: ''
+			display: block
+			font-size: 1em
+			border-radius: 100%
+			position: absolute
+
+		&::after
+			width: 1.65em
+			height: 1.65em
+			background-color: $accent
+			transition: background-color .2s linear
+
+		&::before
+			width: 2em
+			height: 2em
+			font-size: 1em
+			border: .18em solid $accent
+			border-radius: 100%
+			transition: border .2s linear
+		& i
+			padding-top: .2rem
+			position: relative
+			z-index: 10
+
+@import media

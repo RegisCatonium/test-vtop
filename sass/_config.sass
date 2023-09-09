@@ -1,0 +1,53 @@
+// USER VARIABLES SECTION
+$accent: #478BF9
+
+$textColor: #fff
+$bgColor: #110A1D
+$bgColor-2: #1E1231
+
+$fontSize: 1.6rem // Body Font Size
+$fontText: lexend, sans-serif // User Font Family
+$fontIcon: icomoon // иконочный шрифт, сделан из иконок используеемых в макете
+$fontDate: futuraPT, sans-serif
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('lexend', normal, 400, '../fonts/lexend/lexend.ttf')
+@include font('lexend', normal, 500, '../fonts/lexend/lexend-medium.ttf')
+@include font('lexend', normal, 600, '../fonts/lexend/lexend-semiBold.ttf')
+@include font('futuraPT', normal, 500, '../fonts/futuraPT-medium.ttf')
+
+// GENERAL DOCUMENT STYLES
+*
+	box-sizing: border-box
+
+html, body
+	overflow-x: hidden
+html
+	font-size: calc(100vw/1920*10)
+
+body
+	font-family: $fontText
+	font-size: $fontSize
+	color: $textColor
+	background-color: $bgColor
+	min-width: 32rem
+	position: relative
+
+a
+	color: #fff
+	text-decoration: none
+
+h1, h2, h3, h4, h5, p
+	margin: 0
+p
+	line-height: 1.5
+.no-scroll
+	overflow: hidden
