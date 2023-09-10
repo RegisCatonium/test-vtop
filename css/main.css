@@ -2,19 +2,19 @@
   font-family: "lexend";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/lexend/lexend.ttf") format("woff2");
+  src: url("../fonts/Lexend/lexend.ttf") format("woff2");
 }
 @font-face {
   font-family: "lexend";
   font-style: normal;
   font-weight: 500;
-  src: url("../fonts/lexend/lexend-medium.ttf") format("woff2");
+  src: url("../fonts/Lexend/lexend-medium.ttf") format("woff2");
 }
 @font-face {
   font-family: "lexend";
   font-style: normal;
   font-weight: 600;
-  src: url("../fonts/lexend/lexend-semiBold.ttf") format("woff2");
+  src: url("../fonts/Lexend/lexend-semiBold.ttf") format("woff2");
 }
 @font-face {
   font-family: "futuraPT";
@@ -635,19 +635,19 @@ a.btn:hover, button.btn:hover {
   font-family: "lexend";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/lexend/lexend.ttf") format("woff2");
+  src: url("../fonts/Lexend/lexend.ttf") format("woff2");
 }
 @font-face {
   font-family: "lexend";
   font-style: normal;
   font-weight: 500;
-  src: url("../fonts/lexend/lexend-medium.ttf") format("woff2");
+  src: url("../fonts/Lexend/lexend-medium.ttf") format("woff2");
 }
 @font-face {
   font-family: "lexend";
   font-style: normal;
   font-weight: 600;
-  src: url("../fonts/lexend/lexend-semiBold.ttf") format("woff2");
+  src: url("../fonts/Lexend/lexend-semiBold.ttf") format("woff2");
 }
 @font-face {
   font-family: "futuraPT";
