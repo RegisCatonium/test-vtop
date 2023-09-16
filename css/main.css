@@ -66,17 +66,42 @@ a.btn, button.btn {
   width: 39.2rem;
   font-size: 2.4rem;
   font-weight: 600;
-  color: #fff;
+  color: #478BF9;
   text-align: center;
   text-transform: uppercase;
   background-color: #478BF9;
   border: 1px solid #478BF9;
   border-radius: 4.8rem;
-  transition: background 0.3s linear, color 0.3s linear;
-}
-a.btn:hover, button.btn:hover {
-  color: #478BF9;
   background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+a.btn:link, a.btn:visited, button.btn:link, button.btn:visited {
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.04em;
+  transition: all 1s ease;
+}
+a.btn:link:hover, a.btn:visited:hover, button.btn:link:hover, button.btn:visited:hover {
+  color: #fff;
+  text-shadow: none;
+}
+a.btn:link:hover:after, a.btn:visited:hover:after, button.btn:link:hover:after, button.btn:visited:hover:after {
+  height: 450%;
+}
+a.btn:link:after, a.btn:visited:after, button.btn:link:after, button.btn:visited:after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  transition: all 0.75s ease 0s;
+}
+a.btn:after, button.btn:after {
+  background-color: #478BF9;
+  transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  z-index: -1;
 }
 
 .header {
@@ -291,7 +316,6 @@ a.btn:hover, button.btn:hover {
   position: absolute;
   bottom: -50%;
   right: -50%;
-  z-index: 1;
   pointer-events: none;
 }
 .blog__title {
@@ -331,9 +355,9 @@ a.btn:hover, button.btn:hover {
   padding: 1.6rem 6.4rem;
   background-color: #1E1231;
   border-radius: 19.6rem;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease-in-out;
 }
-.blog__item_link {
+.blog__item:hover {
   background-color: #478BF9;
 }
 .blog__text {
@@ -528,9 +552,10 @@ a.btn:hover, button.btn:hover {
   align-items: flex-end;
   max-width: 164rem;
   margin: 0 auto;
-  padding: 4rem 0 2.4rem;
+  padding: 4rem 0rem 2rem;
 }
 .footer__text {
+  font-size: 2rem;
   margin-bottom: 1.4rem;
   text-align: right;
 }
@@ -539,7 +564,9 @@ a.btn:hover, button.btn:hover {
   display: flex;
   gap: 4rem;
   margin: 0;
+  margin-bottom: 2rem;
   padding: 0;
+  font-size: 2rem;
   list-style-type: none;
 }
 .pages__link {
@@ -551,86 +578,83 @@ a.btn:hover, button.btn:hover {
 
 .socials {
   display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  max-width: 32rem;
   margin: 0;
   padding: 0;
-  gap: 4rem;
+  gap: 1.5rem;
   list-style-type: none;
 }
 .socials__item {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 3.2em;
+  height: 3.2em;
   margin: 0;
   padding: 0;
+  font-size: 2rem;
   position: relative;
   transition: background-color 0.2s linear;
 }
-.socials__item:hover::after, .socials__item:hover::before {
-  background-color: #fff;
-}
-.socials__item::after, .socials__item::before {
-  content: "";
-  display: block;
-  font-size: 1em;
-  width: 110%;
-  height: 0.18em;
-  background-color: #478BF9;
-  transition: background-color 0.2s linear;
-  position: absolute;
-}
-.socials__item::after {
-  transform: rotate(45deg);
+.socials__item:hover::before {
+  height: 100%;
 }
 .socials__item::before {
-  transform: rotate(-45deg);
+  width: 100%;
+  height: 0;
+  font-family: icomoon;
+  text-align: center;
+  font-size: 1.9em;
+  line-height: 1.68em;
+  overflow: hidden;
+  pointer-events: none;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  background-color: #478BF9;
+  transition: 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.socials__item:nth-child(1)::before {
+  content: "\e905";
+}
+.socials__item:nth-child(2)::before {
+  content: "\e903";
+}
+.socials__item:nth-child(3)::before {
+  content: "\e904";
+}
+.socials__item:nth-child(4)::before {
+  content: "\e907";
+}
+.socials__item:nth-child(5)::before {
+  content: "\e906";
+}
+.socials__item:nth-child(6)::before {
+  content: "\e901";
+}
+.socials__item:nth-child(7)::before {
+  content: "\e900";
+}
+.socials__item:nth-child(8)::before {
+  content: "\e902";
 }
 .socials__link {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.6rem;
+  width: 100%;
+  height: 100%;
+  font-size: 1.9em;
   color: #1E1231;
   line-height: 0;
-  transition: color 0.2s linear;
+  -webkit-text-stroke: 1px #fff;
+  color: transparent;
   position: relative;
-  z-index: 1;
-}
-.socials__link:hover {
-  color: #0755d3;
-}
-.socials__link:hover::after {
-  background-color: #fff;
-}
-.socials__link:hover::before {
-  border-color: #fff;
-}
-.socials__link::after, .socials__link::before {
-  content: "";
-  display: block;
-  font-size: 1em;
-  border-radius: 100%;
-  position: absolute;
-}
-.socials__link::after {
-  width: 1.65em;
-  height: 1.65em;
-  background-color: #478BF9;
-  transition: background-color 0.2s linear;
-}
-.socials__link::before {
-  width: 2em;
-  height: 2em;
-  font-size: 1em;
-  border: 0.18em solid #478BF9;
-  border-radius: 100%;
-  transition: border 0.2s linear;
-}
-.socials__link i {
-  padding-top: 0.2rem;
-  position: relative;
-  z-index: 10;
 }
 
 @font-face {
@@ -781,7 +805,7 @@ p {
   a.btn, button.btn {
     padding: 1.5rem 0;
     font-size: 1.8rem;
-    width: 100%;
+    width: 80%;
   }
   .banner {
     max-width: 100%;
@@ -845,7 +869,8 @@ p {
     transform: rotate(90deg);
   }
   .blog {
-    width: 100%;
+    width: 85%;
+    margin: 0 auto;
     height: 48rem;
     gap: 1.8rem;
   }
@@ -915,28 +940,10 @@ p {
     line-height: 2rem;
   }
   .socials {
-    width: 100%;
-    justify-content: space-between;
-    gap: 0;
+    max-width: 100%;
+    justify-content: flex-start;
   }
   .socials__item {
-    width: 2.7rem;
-    height: 2.7rem;
-  }
-  .socials__item::after, .socials__item::before {
-    font-size: 1rem;
-    width: 100%;
-    height: 0.2rem;
-  }
-  .socials__link {
-    font-size: 1.4rem;
-  }
-  .socials__link::after {
-    width: 2.236rem;
-    height: 2.236rem;
-  }
-  .socials__link::before {
-    width: 2.7rem;
-    height: 2.7rem;
+    font-size: 1.2rem;
   }
 }/*# sourceMappingURL=main.css.map */

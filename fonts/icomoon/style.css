@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?gc0rbj');
-  src:  url('fonts/icomoon.eot?gc0rbj#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?gc0rbj') format('truetype'),
-    url('fonts/icomoon.woff?gc0rbj') format('woff'),
-    url('fonts/icomoon.svg?gc0rbj#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?sx201g');
+  src:  url('fonts/icomoon.eot?sx201g#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?sx201g') format('truetype'),
+    url('fonts/icomoon.woff?sx201g') format('woff'),
+    url('fonts/icomoon.svg?sx201g#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,30 +25,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-Facebook:before {
-  content: "\e900";
-}
-.icon-Instagram:before {
+.icon-tiktok:before {
   content: "\e901";
 }
-.icon-lang:before {
+.icon-telegram:before {
+  content: "\e900";
+}
+.icon-vk:before {
   content: "\e902";
 }
-.icon-LinkedIn:before {
+.icon-facebook:before {
   content: "\e903";
 }
-.icon-Telegram:before {
+.icon-instagram:before {
   content: "\e904";
 }
-.icon-TikTok:before {
+.icon-twitter:before {
   content: "\e905";
 }
-.icon-Twitter:before {
+.icon-youtube:before {
   content: "\e906";
 }
-.icon-VK:before {
+.icon-linkedin:before {
   content: "\e907";
-}
-.icon-YouTube:before {
-  content: "\e908";
 }

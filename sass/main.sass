@@ -6,16 +6,47 @@ a.btn, button.btn
 	width: 39.2rem
 	font-size: 2.4rem
 	font-weight: 600
-	color: $textColor
+	color: $accent
 	text-align: center
 	text-transform: uppercase
 	background-color: $accent
 	border: 1px solid $accent
 	border-radius: 4.8rem
-	transition: background .3s linear, color .3s linear
-	&:hover
-		color: $accent
-		background-color: transparent
+	background-color: transparent
+	position: relative
+	z-index: 2
+	&:link, &:visited 
+		position: relative
+		overflow: hidden
+		letter-spacing: .04em
+		-webkit-transition: all 1s ease
+		-moz-transition: all 1s ease
+		-o-transition: all 1s ease
+		transition: all 1s ease
+	&:link:hover, &:visited:hover 
+		color: $textColor
+		text-shadow: none
+	&:link:hover:after, &:visited:hover:after 
+		height: 450%
+	&:link:after, &:visited:after 
+		content: ""
+		position: absolute
+		height: 0%
+		left: 50%
+		top: 50%
+		width: 150%
+		-webkit-transition: all 0.75s ease 0s
+		-moz-transition: all 0.75s ease 0s
+		-o-transition: all 0.75s ease 0s
+		transition: all 0.75s ease 0s
+	&:after 
+		background-color: $accent
+		-moz-transform: translateX(-50%) translateY(-50%) rotate(25deg)
+		-ms-transform: translateX(-50%) translateY(-50%) rotate(25deg)
+		-webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg)
+		transform: translateX(-50%) translateY(-50%) rotate(25deg)
+		z-index: -1
+
 .header
 	display: flex
 	justify-content: space-between
@@ -196,7 +227,6 @@ a.btn, button.btn
 		position: absolute
 		bottom: -50%
 		right: -50%
-		z-index: 1
 		pointer-events: none
 	&__title
 		font-size: 4rem
@@ -230,8 +260,8 @@ a.btn, button.btn
 		padding: 1.6rem 6.4rem
 		background-color: $bgColor-2
 		border-radius: 19.6rem
-		transition: background-color .2s ease
-		&_link
+		transition: background-color .3s ease-in-out
+		&:hover
 			background-color: $accent
 	&__text
 		display: -webkit-box
@@ -345,22 +375,24 @@ a.btn, button.btn
 	border-radius: 6.4rem 6.4rem 0 0
 	border-bottom: none
 	background-color: $bgColor-2
-
 	&__area
 		display: flex
 		justify-content: space-between
 		align-items: flex-end
 		max-width: 164rem
 		margin: 0 auto
-		padding: 4rem 0 2.4rem
+		padding: 4rem 0rem 2rem
 	&__text
+		font-size: 2rem
 		margin-bottom: 1.4rem
 		text-align: right
 .pages
 	display: flex
 	gap: 4rem
 	margin: 0
+	margin-bottom: 2rem
 	padding: 0
+	font-size: 2rem
 	list-style-type: none
 	&__link
 		transition: color .2s ease
@@ -369,76 +401,69 @@ a.btn, button.btn
 
 .socials
 	display: flex
+	justify-content: flex-end
+	flex-wrap: wrap
+	max-width: 32rem
 	margin: 0
 	padding: 0
-	gap: 4rem
+	gap: 1.5rem
 	list-style-type: none
-
 	&__item
 		display: flex
 		justify-content: center
 		align-items: center
-		width: 3.2rem
-		height: 3.2rem
+		width: 3.2em
+		height: 3.2em
 		margin: 0
 		padding: 0
+		font-size: 2rem
 		position: relative
 		transition: background-color .2s linear
-		&:hover::after, &:hover::before
-			background-color: #fff
-		&::after, &::before
-			content: ''
-			display: block
-			font-size: 1em
-			width: 110%
-			height: .18em
-			background-color: $accent
-			transition: background-color .2s linear
-			position: absolute
-		&::after
-			transform: rotate(45deg)
+		&:hover::before
+			height: 100%
 		&::before
-			transform: rotate(-45deg)
-
+			width: 100%
+			height: 0
+			font-family: $fontIcon
+			text-align: center
+			font-size: 1.9em
+			line-height: 1.68em
+			overflow: hidden
+			pointer-events: none
+			color: #fff
+			border-bottom: 2px solid #fff
+			background-color: $accent
+			transition: .5s ease-in-out
+			position: absolute
+			top: 0
+			left: 0
+			z-index: 10
+		&:nth-child(1)::before
+			content: '\e905'
+		&:nth-child(2)::before
+			content: '\e903'
+		&:nth-child(3)::before
+			content: '\e904'
+		&:nth-child(4)::before
+			content: '\e907'
+		&:nth-child(5)::before
+			content: '\e906'
+		&:nth-child(6)::before
+			content: '\e901'
+		&:nth-child(7)::before
+			content: '\e900'
+		&:nth-child(8)::before
+			content: '\e902'
 	&__link
 		display: flex
 		justify-content: center
 		align-items: center
-		font-size: 1.6rem
+		width: 100%
+		height: 100%
+		font-size: 1.9em
 		color: $bgColor-2
 		line-height: 0
-		transition: color .2s linear
+		-webkit-text-stroke: 1px #fff
+		color: transparent
 		position: relative
-		z-index: 1
-		&:hover
-			color: darken($accent, 20%)
-			&::after
-				background-color: #fff
-			&::before
-				border-color: #fff
-		&::after, &::before
-			content: ''
-			display: block
-			font-size: 1em
-			border-radius: 100%
-			position: absolute
-
-		&::after
-			width: 1.65em
-			height: 1.65em
-			background-color: $accent
-			transition: background-color .2s linear
-
-		&::before
-			width: 2em
-			height: 2em
-			font-size: 1em
-			border: .18em solid $accent
-			border-radius: 100%
-			transition: border .2s linear
-		& i
-			padding-top: .2rem
-			position: relative
-			z-index: 10
-
 @import media
